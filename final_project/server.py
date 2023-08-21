@@ -5,20 +5,20 @@ import json
 app = Flask("Web Translator")
 
 @app.route("/englishToFrench")
-def englishToFrench():
+def english_to_french():
     textToTranslate = request.args.get('textToTranslate')
     try:
-        french_translation = english_to_french(textToTranslate)
-        return "Translated text to French"
+        french_translation = englishToFrench(textToTranslate)
+        return textToTranslate + " was translated to " + french_translation
     except Exception as e:
         return str(e)
 
 @app.route("/frenchToEnglish")
-def frenchToEnglish():
+def french_to_english():
     textToTranslate = request.args.get('textToTranslate')
     try:
-        english_translation = french_to_english(textToTranslate)
-        return "Translated text to English"
+        english_translation = frenchToEnglish(textToTranslate)
+        return textToTranslate + " was translated to " + english_translation
     except Exception as e:
         return str(e)
 
